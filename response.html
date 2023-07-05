@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Responsive Website</title>
+	<style>
+		body{
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		.slider {
+  width: 100px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 5px;
+  position: relative;
+}
+
+		
+	</style>
+</head>
+<body>
+<h1 id="text" style="font-size: 80px;">Responsive text</h1>
+<div class="slider"></div>
+<script type="text/javascript">
+	var slider = document.querySelector(".slider");
+
+slider.addEventListener("mousedown", function(event) {
+  var offset = event.clientX - this.offsetLeft;
+  var value = offset / this.clientWidth;
+
+  this.style.left = value * 100 + "%";
+});
+	
+	window.onresize = function() {
+		var width = window.innerWidth;
+		var p = document.getElementById('text');
+		if(width <= 1000 && width >800)
+          p.style.color = "red";
+        else if(width <=800)
+      	p.style.color = "blue";
+};
+</script>
+</body>
+</html>
